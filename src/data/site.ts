@@ -40,7 +40,6 @@ export const services: Service[] = [
       'Sistema interno que substitui planilha e ClickUp',
       'Ferramenta de workflow com permissões por equipe',
     ],
-    stack: ['Next.js', 'Node.js', 'PostgreSQL', 'Supabase'],
     flow: ['PLANILHA', 'SISTEMA'],
     questions: [
       { id: 'problema', label: 'Que processo ou problema a plataforma vai resolver?', type: 'textarea', required: true },
@@ -65,7 +64,6 @@ export const services: Service[] = [
       'Suporte interno para a equipe consultar processos',
       'Vários agentes especializados trabalhando juntos',
     ],
-    stack: ['Python', 'LangChain', 'RAG', 'MCP'],
     flow: ['MENSAGEM', 'VENDA'],
     questions: [
       { id: 'canal', label: 'Onde o agente vai atender?', type: 'multi', options: ['WhatsApp', 'Instagram', 'Site', 'Uso interno'], required: true },
@@ -90,7 +88,6 @@ export const services: Service[] = [
       'Integração entre sistemas que não se conversam',
       'Emissão e cobrança sem trabalho manual',
     ],
-    stack: ['n8n', 'Make', 'APIs REST', 'Webhooks'],
     flow: ['MANUAL', 'AUTOMÁTICO'],
     questions: [
       { id: 'tarefa', label: 'Qual tarefa você quer automatizar?', type: 'textarea', required: true },
@@ -115,7 +112,6 @@ export const services: Service[] = [
       'Marketplace com pagamento integrado',
       'Cobrança recorrente com Stripe ou Pix',
     ],
-    stack: ['React', 'Next.js', 'Supabase', 'Stripe'],
     flow: ['IDEIA', 'PRODUTO'],
     questions: [
       { id: 'estagio', label: 'Em que estágio está?', type: 'single', options: ['Só a ideia', 'Validando', 'Já tenho clientes', 'Já tenho produto'], required: true },
@@ -140,7 +136,6 @@ export const services: Service[] = [
       'Cálculo de frete e opções de entrega',
       'Treinamento pra você cuidar dos produtos sozinho',
     ],
-    stack: ['Nuvemshop', 'Nuvem Pago', 'Domínio', 'Frete'],
     flow: ['INSTAGRAM', 'LOJA'],
     questions: [
       { id: 'produto', label: 'O que você vende?', type: 'text', required: true },
@@ -165,7 +160,6 @@ export const services: Service[] = [
       'Site de apresentação da empresa',
       'Página de evento com inscrição',
     ],
-    stack: ['HTML', 'GSAP', 'React', 'Vite'],
     flow: ['VISITA', 'CONTATO'],
     questions: [
       { id: 'objetivo', label: 'Qual o objetivo da página?', type: 'single', options: ['Vender', 'Captar leads', 'Apresentar a empresa', 'Evento'], required: true },
@@ -221,7 +215,7 @@ export const projects: Project[] = [
   },
 ]
 
-export const stack: string[] = ['TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'PostgreSQL', 'Supabase', 'Redis', 'Docker', 'LangChain', 'RAG', 'MCP', 'n8n', 'Make', 'Playwright']
+export const stack: string[] = ['TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'PostgreSQL', 'Supabase', 'Redis', 'Docker', 'AWS', 'GCP', 'LangChain', 'RAG', 'MCP', 'n8n', 'Make', 'Playwright']
 
 /** Busca um serviço pelo id (ex.: 'agentes'). */
 export function getService(id: string): Service | undefined {

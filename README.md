@@ -104,9 +104,9 @@ formulário cai no fluxo do WhatsApp, sem gravar no banco.
 
 Tudo que é texto mora em [`src/data/site.ts`](src/data/site.ts):
 
-- **Serviços**: título, pitch, casos de uso, stack e as **perguntas do passo 2** (`questions`).
+- **Serviços**: título, pitch, casos de uso e as **perguntas do passo 2** (`questions`).
 - **Tipos de pergunta**: `text`, `textarea`, `single`, `multi` e `select`. A pergunta só é obrigatória com `required: true`.
-- **Projetos** e **stack** da seção "Sobre".
+- **Projetos** e a **stack** da ficha técnica (seção "Sobre"): as tecnologias aparecem só ali.
 - **Perfil**: e-mail, WhatsApp e links sociais.
 
 Mantenha o formulário enxuto (até 10 perguntas por serviço): é um pré-briefing, o restante fica para a conversa.

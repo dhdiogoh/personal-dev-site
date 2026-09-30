@@ -21,7 +21,7 @@ export default function About() {
       <div className={`wrap ${styles.about}`}>
         <div className={styles.about__text}>
           <p className="label label--sun">Sobre</p>
-          <h2 className="h2">Da ideia ao deploy, sem ficar no meio do caminho.</h2>
+          <h2 className="h2">Da ideia ao lançamento, sem ficar no meio do caminho.</h2>
           <p>Sou desenvolvedor full stack com foco em backend, agentes de IA e automação. Nos últimos anos construí de SaaS multi-tenant a ecossistemas de agentes rodando em produção, para clientes que vão de startups a instituições de médio porte.</p>
           <p>Gosto de entender o problema antes de escrever a primeira linha. Depois disso, desenho a arquitetura, integro APIs, banco e autenticação, e entrego funcionando, com testes e documentação.</p>
         </div>

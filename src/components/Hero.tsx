@@ -92,7 +92,7 @@ export default function Hero() {
         <hr className="dash" />
         <p className={styles.hero__intro}>
           Eu sou o <strong>Diogo Henrique</strong>, desenvolvedor full stack e engenheiro de IA em Belém do Pará.
-          Crio plataformas, agentes de IA e automações sob medida que resolvem problema de verdade, da ideia ao deploy.
+          Crio plataformas, agentes de IA e automações sob medida que resolvem problema de verdade, da ideia ao lançamento.
         </p>
         <div className={styles.hero__actions}>
           <a className="btn btn--sun" href="#contato" onClick={onAnchorClick}>Contar meu projeto <span aria-hidden="true">→</span></a>

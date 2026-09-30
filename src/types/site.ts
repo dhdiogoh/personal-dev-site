@@ -17,7 +17,6 @@ export interface Service {
   title: string
   pitch: string
   useCases: string[]
-  stack: string[]
   flow: [string, string]
   questions: Question[]
 }

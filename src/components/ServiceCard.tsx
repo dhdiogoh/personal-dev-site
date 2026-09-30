@@ -12,7 +12,7 @@ const pad = (n: number) => String(n).padStart(2, '0')
 
 export default function ServiceCard({ service, index, total }: ServiceCardProps) {
   const { pickService } = useLeadIntent()
-  const { id, title, pitch, useCases, stack, flow } = service
+  const { id, title, pitch, useCases, flow } = service
 
   return (
     <article className={styles.svc} id={`svc-${id}`}>
@@ -27,13 +27,6 @@ export default function ServiceCard({ service, index, total }: ServiceCardProps)
             <li key={u}>{u}</li>
           ))}
         </ul>
-      </div>
-      <div className={styles.svc__stack}>
-        {stack.map((t) => (
-          <span key={t} className="tag cond">
-            {t}
-          </span>
-        ))}
       </div>
       <div className={styles.svc__foot}>
         <span className={`${styles.svc__flow} cond`}>

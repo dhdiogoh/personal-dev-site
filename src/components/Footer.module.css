@@ -1,7 +1,7 @@
 /* ===================== Footer ===================== (legacy/styles.css, valores inalterados) */
 .footer { background: var(--ink); color: var(--cream); overflow: hidden; padding-top: 48px; }
-.footer__mark { display: flex; justify-content: center; opacity: 0.85; }
-.footer__mark svg { width: clamp(240px, 36vw, 560px); height: auto; overflow: visible; }
+.footer__mark { display: flex; justify-content: center; }
+.footer__mark svg { width: clamp(88px, 8vw, 128px); height: auto; overflow: visible; }
 .footer__row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-block: 32px; font-size: 14px; opacity: 0.7; }
 .footer__row a { text-decoration: none; }
 .footer__row a:hover { color: var(--accent); }

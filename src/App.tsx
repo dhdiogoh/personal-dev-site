@@ -7,12 +7,14 @@ import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Preloader from './components/Preloader'
 
 export default function App() {
   useSmoothScroll()
 
   return (
     <LeadIntentProvider>
+      <Preloader />
       <a className="skip" href="#main">Pular para o conteúdo</a>
       <Nav />
       <main id="main">

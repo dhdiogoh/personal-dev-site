@@ -1,5 +1,6 @@
 import { useRef, type MouseEvent } from 'react'
 import { floatCloud, gsap, isMobile, prefersReducedMotion, useGSAP } from '../lib/gsap'
+import { introDone } from '../lib/intro'
 import { scrollToHash } from '../lib/scroll'
 import Cloud from './Cloud'
 import styles from './Hero.module.css'
@@ -24,12 +25,14 @@ export default function Hero() {
       const img = root.current!.querySelector(`${q('hero__portrait')} img`)!
 
       // Entrada do hero: letras do "opa!" pulam uma a uma
-      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } })
+      const tl = gsap.timeline({ paused: true, defaults: { ease: 'power4.out' } })
       tl.from(img, { yPercent: 18, opacity: 0, duration: 1.2 })
         .from(q('hero__card'), { y: 40, opacity: 0, duration: 0.9 }, 0.15)
         .from('[data-ch]', { yPercent: 110, rotate: (i: number) => (i % 2 ? 12 : -12), duration: 0.9, stagger: 0.07, ease: 'back.out(2)' }, 0.35)
         .from(`${q('hero__intro')}, ${q('hero__actions')}`, { y: 16, opacity: 0, duration: 0.7, stagger: 0.08 }, 0.7)
         .from(q('hero__status'), { yPercent: 100, duration: 0.6 }, 0.9)
+      // No primeiro acesso a entrada espera o pré-loader (sem pré-loader, libera na hora)
+      introDone.then(() => tl.play())
 
       // Nuvens flutuando (índices 0..2 da página)
       const clouds = gsap.utils.toArray<SVGSVGElement>('.cloud')

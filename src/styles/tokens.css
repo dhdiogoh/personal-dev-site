@@ -1,0 +1,103 @@
+/* ==========================================================================
+   tokens.css — tokens globais + base/reset + utilitários compartilhados.
+   Extraído de legacy/styles.css sem alteração de valores.
+   Blocos específicos de componente vivem em Componente.module.css.
+   ========================================================================== */
+
+:root {
+  --green: #12875a;
+  --green-2: #3da97c;
+  --green-3: #2a9a6d;
+  --green-deep: #0c5f3f;
+  --ink: #0b0b0f;
+  --cream: #f5f1e8;
+  --paper: #fbf8f1;
+  --accent: #ff8a3d;
+
+  --display: 'Archivo', 'Arial Black', sans-serif;
+  --body: 'Instrument Sans', system-ui, sans-serif;
+
+  --line: 2px solid var(--ink);
+  --radius: 14px;
+  --gutter: clamp(16px, 4vw, 64px);
+  --nav-h: 64px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: clamp(16px, 1.1vw, 18px);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { width: min(1280px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 100; background: var(--ink); color: var(--cream); padding: 8px 16px; border-radius: 8px; }
+.skip:focus { left: 8px; }
+
+/* Tipografia utilitária -------------------------------------------------- */
+.cond { font-family: var(--display); font-stretch: 75%; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
+.label {
+  display: flex; align-items: center; gap: 12px; margin: 0 0 16px;
+  font-family: var(--display); font-stretch: 75%; font-weight: 800;
+  font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.label::before { content: ''; width: 32px; height: 3px; background: var(--accent); border-radius: 2px; }
+.h2 {
+  margin: 0; font-family: var(--display); font-weight: 900; font-stretch: 112%;
+  font-size: clamp(40px, 6vw, 88px); line-height: 0.95; letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.section__lead { max-width: 56ch; margin: 24px 0 0; font-size: clamp(17px, 1.3vw, 20px); opacity: 0.8; }
+.dash { border: 0; border-top: 2px dashed var(--ink); margin: 0; }
+
+/* Botões ------------------------------------------------------------------ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 24px; border-radius: 999px; border: var(--line);
+  font-family: var(--display); font-stretch: 85%; font-weight: 800; font-size: 16px;
+  text-transform: uppercase; letter-spacing: 0.03em; text-decoration: none;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+.btn:active { transform: none; box-shadow: none; }
+.btn[disabled] { opacity: 0.35; pointer-events: none; }
+.btn--sun { background: var(--accent); color: var(--ink); }
+.btn--ink { background: var(--ink); color: var(--cream); }
+.btn--ghost { background: transparent; }
+.btn--ghost:hover { background: var(--cream); }
+.btn--ghost-ink { background: transparent; }
+
+/* Seções (shell compartilhado) ------------------------------------------- */
+.section { padding-block: 60px; }
+@media (min-width: 768px) { .section { padding-block: 96px; } }
+@media (min-width: 1024px) { .section { padding-block: 128px; } }
+.section--tight { padding-top: 0 !important; }
+.section--cream { background: var(--cream); }
+.section--ink { background: var(--ink); color: var(--cream); }
+.section__head { margin-bottom: clamp(40px, 5vw, 72px); }
+
+/* Primitivos compartilhados entre componentes ----------------------------- */
+/* .cloud: Hero + Contact · .tag: Services + Projects + About · .chips: About */
+.cloud { position: absolute; color: var(--green-2); width: clamp(220px, 28vw, 460px); will-change: transform; }
+.tag { padding: 3px 10px 4px; border: 1.5px solid var(--ink); border-radius: 999px; font-size: 12.5px; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 16px 20px 24px; }
+
+/* Responsivo (token) ------------------------------------------------------ */
+@media (max-width: 900px) {
+  :root { --nav-h: 60px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+}

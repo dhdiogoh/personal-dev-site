@@ -31,7 +31,7 @@
 .hero__hello {
   margin: 0; padding: clamp(24px, 3.5vw, 48px) clamp(24px, 3.5vw, 48px) clamp(16px, 2vw, 28px);
   font-family: var(--display); font-weight: 900; font-stretch: 125%;
-  font-size: clamp(88px, 13vw, 224px); line-height: 0.82; letter-spacing: -0.035em;
+  font-size: clamp(88px, 13vw, 200px); line-height: 0.82; letter-spacing: -0.035em; white-space: nowrap;
 }
 .hero__hello span { display: inline-block; }
 .hero__intro { margin: 0; padding: clamp(20px, 2.5vw, 32px) clamp(24px, 3.5vw, 48px) 0; font-size: clamp(17px, 1.25vw, 20px); line-height: 1.55; }

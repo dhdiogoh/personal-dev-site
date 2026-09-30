@@ -1,0 +1,32 @@
+/* ===================== Contact ===================== */
+/* Portado de legacy/styles.css sem alteração de valores. */
+
+.contact { position: relative; isolation: isolate; overflow: hidden; background: var(--green); border-top: var(--line); padding-block: 60px; }
+@media (min-width: 1024px) { .contact { padding-block: 120px; } }
+
+/* Cópia local da regra .sky do hero (legacy compartilhava a classe). */
+.sky { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.cloud--d { top: 6%; right: -4%; width: clamp(200px, 26vw, 420px); }
+.cloud--e { bottom: 8%; left: -6%; width: clamp(240px, 30vw, 480px); color: var(--green-3); }
+
+.contact__grid {
+  display: grid; grid-template-columns: 1fr 1.25fr; grid-template-rows: auto auto 1fr; align-items: start;
+  column-gap: clamp(40px, 6vw, 96px);
+  grid-template-areas: 'intro form' 'links form' '. form';
+}
+.contact__intro { grid-area: intro; }
+.contact__grid > form { grid-area: form; }
+.contact__title { margin: 0 0 24px; font-family: var(--display); font-weight: 900; font-stretch: 125%; font-size: clamp(72px, 9.5vw, 156px); line-height: 0.84; letter-spacing: -0.035em; }
+.contact__text { max-width: 44ch; font-size: clamp(17px, 1.25vw, 20px); }
+/* Desktop: no legacy a <ul> ficava dentro do intro e a margem do <p> colapsava com a dele; como item de grid não colapsa. */
+@media (min-width: 901px) { .contact__text { margin-bottom: 0; } }
+.contact__links { grid-area: links; list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 0; border-top: var(--line); max-width: 440px; }
+.contact__links a { display: flex; justify-content: space-between; gap: 16px; padding: 14px 4px; border-bottom: var(--line); text-decoration: none; transition: padding 0.35s var(--ease), background-color 0.35s var(--ease); }
+.contact__links a:hover { padding-inline: 14px; background: var(--ink); color: var(--cream); }
+.contact__links b { font-family: var(--display); font-stretch: 75%; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; }
+
+@media (max-width: 900px) {
+  /* legacy: `.about, .contact__grid { grid-template-columns: 1fr; }` (metade do Contact) */
+  .contact__grid { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 40px; grid-template-areas: 'intro' 'form' 'links'; }
+  .contact__links { margin-top: 0; }
+}

@@ -1,0 +1,59 @@
+/* ===================== LeadForm ===================== */
+/* Portado de legacy/styles.css sem alteração de valores.
+   Classes globais (.btn) entram via :global(). Estados (is-active/is-done/is-invalid) são do módulo. */
+
+.lead { background: var(--cream); border: var(--line); border-radius: 18px; box-shadow: 10px 10px 0 var(--ink); padding: clamp(20px, 3vw, 36px); }
+.lead__steps { list-style: none; display: flex; gap: 8px; margin: 0 0 28px; padding: 0; }
+.lead__steps li { display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; border: 1.5px solid rgb(11 11 15 / 0.25); border-radius: 999px; font-family: var(--display); font-stretch: 75%; font-weight: 800; text-transform: uppercase; font-size: 14px; color: rgb(11 11 15 / 0.45); transition: all 0.3s var(--ease); }
+.lead__steps li span { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: rgb(11 11 15 / 0.1); font-size: 13px; }
+.lead__steps li.is-active { border-color: var(--ink); color: var(--ink); }
+.lead__steps li.is-active span { background: var(--accent); }
+.lead__steps li.is-done { color: var(--ink); }
+.lead__steps li.is-done span { background: var(--ink); color: var(--cream); }
+.lead__panel { border: 0; margin: 0; padding: 0; min-width: 0; display: none; }
+.lead__panel.is-active { display: block; }
+.lead__q { padding: 0; margin: 0 0 20px; font-family: var(--display); font-weight: 850; font-stretch: 105%; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.1; }
+.lead__svc { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 15px; letter-spacing: 0.04em; }
+.lead__services { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pick {
+  display: flex; align-items: center; gap: 12px; text-align: left; min-height: 60px;
+  padding: 12px 14px; border: var(--line); border-radius: 12px; background: var(--paper);
+  font-weight: 600; transition: background-color 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.pick:hover { transform: translateY(-2px); }
+.pick[aria-pressed='true'] { background: var(--ink); color: var(--cream); }
+.lead__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; }
+.field { display: grid; gap: 8px; min-width: 0; }
+.field--full { grid-column: 1 / -1; }
+.field > span { font-weight: 600; font-size: 15px; }
+.field input, .field textarea, .field select {
+  width: 100%; min-height: 48px; padding: 12px 14px; border: var(--line); border-radius: 10px;
+  background: #fff; font: inherit; color: inherit; transition: box-shadow 0.25s var(--ease);
+}
+.field textarea { resize: vertical; min-height: 96px; }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; box-shadow: 0 0 0 3px var(--accent); }
+.field.is-invalid input, .field.is-invalid textarea, .field.is-invalid .opts { box-shadow: 0 0 0 3px #e5484d; border-radius: 10px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { min-height: 40px; padding: 6px 16px; border: 1.5px solid var(--ink); border-radius: 999px; background: #fff; font-size: 15px; transition: background-color 0.25s var(--ease), color 0.25s var(--ease); }
+.opt:hover { background: var(--paper); }
+.opt[aria-pressed='true'] { background: var(--ink); color: var(--cream); }
+.lead__nav { display: flex; justify-content: flex-end; gap: 10px; margin-top: 28px; padding-top: 20px; border-top: 2px dashed var(--ink); }
+.lead__nav [data-action='back'] { margin-right: auto; }
+.lead__error { margin: 16px 0 0; color: #b4232a; font-weight: 600; }
+.lead__done { display: grid; gap: 20px; justify-items: start; }
+.lead__done[hidden] { display: none; }
+.lead__done p:not(.lead__q) { font-size: 18px; margin: 0; }
+
+/* Novo (não existe no legado): link de WhatsApp ao lado do erro quando o envio falha. */
+.lead__fallback { margin: 12px 0 0; }
+
+/* Honeypot: fora da tela, sem display:none (bots ignoram campos display:none). */
+.hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+@media (max-width: 640px) {
+  .lead__services, .lead__fields { grid-template-columns: 1fr; }
+  .lead { box-shadow: 6px 6px 0 var(--ink); }
+  .lead__steps li { padding-right: 10px; font-size: 13px; }
+  .lead__nav :global(.btn) { flex: 1; }
+  .lead__nav [data-action='back'] { flex: 0 0 auto; }
+}

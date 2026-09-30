@@ -1,0 +1,32 @@
+/* Services + ServiceCard — movido de legacy/styles.css (valores inalterados). */
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.svc {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--paper); border: var(--line); border-radius: var(--radius);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.svc:hover { transform: translate(-4px, -4px); box-shadow: 8px 8px 0 var(--ink); }
+.svc__top { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: var(--line); }
+.svc__idx { font-size: 14px; opacity: 0.6; }
+.svc__body { padding: 24px 20px 0; flex: 1; }
+.svc__title { margin: 0 0 10px; font-family: var(--display); font-weight: 850; font-stretch: 105%; font-size: clamp(24px, 2vw, 28px); line-height: 1.05; letter-spacing: -0.01em; }
+.svc__pitch { margin: 0 0 20px; opacity: 0.8; }
+.svc__uses { list-style: none; margin: 0; padding: 20px 0 0; border-top: 2px dashed var(--ink); display: grid; gap: 10px; font-size: 15px; line-height: 1.45; }
+.svc__uses li { display: grid; grid-template-columns: 14px 1fr; gap: 10px; }
+.svc__uses li::before { content: ''; width: 8px; height: 8px; margin-top: 7px; border-radius: 2px; background: var(--green); }
+.svc__stack { display: flex; flex-wrap: wrap; gap: 6px; padding: 20px 20px 0; }
+.svc__foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 20px; padding: 14px 20px; border-top: var(--line); }
+.svc__flow { display: flex; align-items: center; gap: 8px; font-size: 13px; opacity: 0.7; }
+.svc__flow svg { width: 28px; }
+.svc__cta { border: 0; background: none; padding: 6px 0; font-size: 15px; text-decoration: none; }
+.svc__cta span { display: inline-block; transition: transform 0.35s var(--ease); }
+.svc:hover .svc__cta span { transform: translateX(4px); }
+.svc:hover .svc__cta { color: var(--green-deep); }
+
+@media (max-width: 1100px) {
+  .services { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .services { grid-template-columns: 1fr; }
+}

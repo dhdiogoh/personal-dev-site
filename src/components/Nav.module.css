@@ -1,0 +1,44 @@
+/* ===================== Nav ===================== (legacy/styles.css, valores inalterados) */
+.nav {
+  position: fixed; inset: 0 0 auto; z-index: 50;
+  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px);
+  display: flex; align-items: center; gap: 32px; padding-inline: var(--gutter);
+  background: var(--green); border-bottom: var(--line);
+}
+.nav__logo { width: 56px; color: var(--ink); transition: transform 0.4s var(--ease); }
+.nav__logo:hover { transform: rotate(-6deg) scale(1.06); }
+.nav__links { display: flex; gap: 32px; margin-left: auto; }
+.nav__links a, .menu a {
+  font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: 19px;
+  text-transform: uppercase; letter-spacing: 0.02em; text-decoration: none;
+  background: linear-gradient(var(--ink), var(--ink)) left bottom / 0 2px no-repeat;
+  transition: background-size 0.35s var(--ease);
+}
+.nav__links a:hover { background-size: 100% 2px; }
+.nav__cta {
+  align-self: stretch; display: flex; align-items: center; margin-right: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter); border-left: var(--line); background: var(--accent);
+  font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: 19px;
+  text-transform: uppercase; text-decoration: none; transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+.nav__cta:hover { background: var(--ink); color: var(--accent); }
+.nav__burger { display: none; margin-left: auto; width: 44px; height: 44px; border: var(--line); border-radius: 999px; background: var(--cream); position: relative; }
+.nav__burger span { position: absolute; left: 11px; right: 11px; height: 2px; background: var(--ink); transition: transform 0.35s var(--ease); }
+.nav__burger span:first-child { top: 16px; }
+.nav__burger span:last-child { top: 24px; }
+.nav__burger[aria-expanded='true'] span:first-child { transform: translateY(4px) rotate(45deg); }
+.nav__burger[aria-expanded='true'] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+.menu {
+  position: fixed; inset: var(--nav-h) 0 auto; z-index: 49; display: grid;
+  background: var(--green); border-bottom: var(--line);
+}
+.menu[hidden] { display: none; }
+.menu a { padding: 20px var(--gutter); border-top: var(--line); font-size: 32px; }
+/* Igual ao legacy: `.menu a` (0,1,1) redefine `background` com o gradiente e vence esta regra (0,1,0). */
+.menu__cta { background: var(--accent); }
+
+@media (max-width: 900px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__burger { display: block; }
+  .nav__logo { width: 48px; }
+}

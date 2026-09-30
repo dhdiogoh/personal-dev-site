@@ -1,0 +1,65 @@
+/* ===================== Hero ===================== (legacy/styles.css, valores inalterados) */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 100svh; padding-top: var(--nav-h);
+  background: var(--green); border-bottom: var(--line);
+  display: grid; align-items: center;
+}
+.sky { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+/* .cloud (base) é global em tokens.css, carregado antes; as variantes vencem pela ordem, como no legacy. */
+.cloud--a { top: 14%; left: -6%; }
+.cloud--b { top: 22%; left: 48%; width: clamp(160px, 18vw, 300px); opacity: 0.85; }
+.cloud--c { bottom: 16%; left: 30%; width: clamp(260px, 32vw, 520px); color: var(--green-3); }
+.sky__band { position: absolute; border-radius: 999px; background: var(--green-3); opacity: 0.55; }
+.sky__band--1 { width: 140vw; height: 22vh; left: -20vw; top: 58%; transform: rotate(-9deg); }
+.sky__band--2 { width: 120vw; height: 9vh; left: 10vw; top: 84%; transform: rotate(-9deg); opacity: 0.4; }
+
+.hero__portrait {
+  position: absolute; right: 0; bottom: 0; margin: 0;
+  height: calc(100% - var(--nav-h) - 3vh); width: min(56vw, 900px);
+  display: flex; justify-content: flex-end; align-items: flex-end;
+}
+.hero__portrait img { height: 100%; width: auto; object-fit: contain; object-position: bottom right; will-change: transform; transform-origin: 50% 100%; }
+
+.hero__card {
+  position: relative; z-index: 2;
+  width: min(640px, 46vw); margin-left: var(--gutter);
+  border: var(--line); border-radius: var(--radius);
+  background: rgb(255 255 255 / 0.07);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.hero__hello {
+  margin: 0; padding: clamp(24px, 3.5vw, 48px) clamp(24px, 3.5vw, 48px) clamp(16px, 2vw, 28px);
+  font-family: var(--display); font-weight: 900; font-stretch: 125%;
+  font-size: clamp(88px, 13vw, 224px); line-height: 0.82; letter-spacing: -0.035em;
+}
+.hero__hello span { display: inline-block; }
+.hero__intro { margin: 0; padding: clamp(20px, 2.5vw, 32px) clamp(24px, 3.5vw, 48px) 0; font-size: clamp(17px, 1.25vw, 20px); line-height: 1.55; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; padding: 24px clamp(24px, 3.5vw, 48px) clamp(24px, 3.5vw, 40px); }
+
+.hero__status {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; width: fit-content; margin-inline: auto !important;
+  margin: 0; display: flex; align-items: center; gap: 10px; white-space: nowrap;
+  padding: 10px 22px 12px; border-radius: 16px 16px 0 0; background: var(--ink); color: var(--cream);
+  font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgb(255 138 61 / 0.6); animation: pulse 2s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 10px rgb(255 138 61 / 0); } 100% { box-shadow: 0 0 0 0 rgb(255 138 61 / 0); } }
+
+@media (max-width: 900px) {
+  .hero { display: block; min-height: 0; }
+  .hero__portrait { position: relative; width: 100%; height: 58svh; min-height: 360px; justify-content: center; border-bottom: var(--line); }
+  .hero__portrait img { object-position: bottom center; }
+  .hero__card { width: 100%; margin: 0; border: 0; border-radius: 0; background: var(--green); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .hero__hello { font-size: clamp(96px, 30vw, 180px); text-align: center; padding-top: 32px; }
+  .hero__card :global(.dash) { margin-inline: 24px; }
+  .hero__intro { padding-inline: 24px; }
+  .hero__actions { padding: 24px 24px 72px; }
+  .hero__actions :global(.btn) { flex: 1 1 200px; }
+  .cloud--a { top: 8%; } .cloud--b { top: 20%; left: 62%; } .cloud--c { display: none; }
+  .sky__band--1 { top: 34%; } .sky__band--2 { display: none; }
+}
+
+@media (max-width: 640px) {
+  .hero__status { font-size: 13px; padding-inline: 16px; }
+}

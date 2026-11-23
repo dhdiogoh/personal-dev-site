@@ -59,3 +59,31 @@ export interface Lead {
   message: string | null
   source: string
 }
+
+/* ---------- Portfólio (/portfolio) ---------- */
+
+export interface Experience {
+  company: string
+  role: string
+  period: string
+  bullets: string[]
+  tags: string[]
+}
+
+export interface CaseStudy {
+  name: string
+  /** Linha curta exibida no topo do card (tipo de produto · empresa). */
+  context: string
+  problem: string
+  built: string
+  stack: string[]
+  result: string
+  link?: { label: string; href: string }
+}
+
+export interface StackGroup {
+  title: string
+  items: string[]
+  /** Itens com qualificador (ex.: usados só em projeto acadêmico), exibidos à parte. */
+  aside?: { note: string; items: string[] }
+}
